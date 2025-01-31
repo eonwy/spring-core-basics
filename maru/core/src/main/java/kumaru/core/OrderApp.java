@@ -3,15 +3,14 @@ package kumaru.core;
 import kumaru.core.member.Grade;
 import kumaru.core.member.Member;
 import kumaru.core.member.MemberService;
-import kumaru.core.member.MemberServiceImpl;
 import kumaru.core.order.Order;
 import kumaru.core.order.OrderService;
-import kumaru.core.order.OrderServiceImpl;
 
 public class OrderApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "MemberA", Grade.VIP);

@@ -1,16 +1,27 @@
 package kumaru.core.order;
 
+import kumaru.core.AppConfig;
 import kumaru.core.member.Grade;
 import kumaru.core.member.Member;
 import kumaru.core.member.MemberService;
 import kumaru.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
+
+
 
     @Test
     void createOrder() {
