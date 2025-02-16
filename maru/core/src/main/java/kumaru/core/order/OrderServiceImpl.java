@@ -1,19 +1,21 @@
 package kumaru.core.order;
 
+import kumaru.core.annotation.MainDiscountPolicy;
 import kumaru.core.discount.DiscountPolicy;
 import kumaru.core.member.Member;
 import kumaru.core.member.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     public final MemberRepository memberRepository;
     public final DiscountPolicy discountPolicy;
 
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }

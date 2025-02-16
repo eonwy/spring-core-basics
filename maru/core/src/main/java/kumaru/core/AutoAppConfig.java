@@ -13,8 +13,10 @@ import org.springframework.context.annotation.FilterType;
 ) // @Component 애노테이션이 붙은 클래스를 모두 스프링빈으로 지정해줌
 public class AutoAppConfig {
 
+/*
     @Bean(name = "memoryMemberRepository")
     MemberRepository memoryMemberRepository() {
         return new MemoryMemberRepository();
     }
+*/
 }
