@@ -3,12 +3,13 @@ package kumaru.core.common;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
 @Component
-@Scope(value = "request") // value 하나만 입력 시 value 생략 가능
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS) // value 하나만 입력 시 value 생략 가능
 public class MyLogger {
 
     private String uuid;
